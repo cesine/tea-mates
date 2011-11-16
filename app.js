@@ -1,7 +1,8 @@
 /*
  * Module dependencies.
  */
-require('nko')('qZEbdQsd5oI2kFe0');
+//This was for tea-mates deploy in the nodejs knockout competition https://github.com/nko2/website/tree/master/module
+//require('nko')('qZEbdQsd5oI2kFe0');
 
 var logger = require('nlogger').logger(module),
 sys = require('sys'),
