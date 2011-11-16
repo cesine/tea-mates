@@ -1,9 +1,9 @@
 #!/bin/bash
 
-#npm install nlogger
-#npm install connect-form 
-#npm install underscore
-#npm install socket.io
+npm install nlogger
+npm install connect-form 
+npm install underscore
+npm install socket.io
 
 echo '{ "counter": 0 }' > counter.json
 
@@ -41,7 +41,8 @@ if [[ $platform == 'linux' ]]; then
   sudo mv sources.list /etc/apt/sources.list
   sudo apt-get update
 elif [[ $platform == 'darwin' ]]; then
-       echo "You need to install mp3split to run this app. http://mp3splt.sourceforge.net/mp3splt_page/downloads.php "
+  echo "You need to install mp3split to run this app. http://mp3splt.sourceforge.net/mp3splt_page/downloads.php "
+	exit 0;
 fi
 
 
