@@ -59,7 +59,7 @@ app.post('/', function (req, res, next) {
 				 var split = files.audio.filename.split('.');
 				 var ext = split[split.length - 1];
 
-				 if (ext == 'mp3'|| ext == 'wav' || ext == 'amr'|| ext == 'ogg' ) {
+				 if (ext == 'mp3') {
 				   // get the file counter and increment it
 				   var fileContents = fs.readFileSync(fileCounter,'utf8');
 				   var jsonCounter = JSON.parse(fileContents);
@@ -85,7 +85,7 @@ app.post('/', function (req, res, next) {
 										   } else {
 										     sys.puts(text);
 										     res.render('index', { result: text });
-										     fs.unlinkSync(__dirname + '/audio/' + path.basename(audioFileName, '.'+ext) + '.flac');
+										     fs.unlinkSync(__dirname + '/audio/' + path.basename(audioFileName, '.mp3') + '.flac');
 										   }
 										 });
 						      }
