@@ -1,5 +1,7 @@
 #!/bin/bash
 
+npm install jade
+npm install express
 npm install nlogger
 npm install connect-form 
 npm install underscore
