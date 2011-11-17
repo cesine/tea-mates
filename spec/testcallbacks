@@ -1,0 +1,42 @@
+var fs = require('fs'),
+        util = require('util'),
+            sys = require('sys'),
+                path = require('path'),
+                    exec = require('child_process').exec,
+                        _ = require('../node_modules/underscore');
+
+
+var Klass = function () {
+};
+
+Klass.asyncMethod = function (filePath, callback) {
+  var split = filePath.split('.');
+  var cmd = 'ffmpeg -y -i /home/gina/Downloads/tea-mates/spec/test_audio.wav /home/gina/Downloads/tea-mates/spec/test_audio.ogg' 
+  
+  sys.puts(__dirname + ":" + cmd);
+  var child = exec(cmd,
+          function(err, stdout, stderr){
+                  if (err) {
+                            return callback(err);
+                                    } else {
+                                              return callback(filePath);
+                                                      }
+                                                          });
+    
+};
+
+describe('TestCallbacks', function (){
+
+  it('should test async call', function () {
+      var someResponseData = '/home/gina/Downloads/tea-mates/spec/test_audio.wav';
+
+      spyOn(Klass, 'asyncMethod').andCallThrough();
+      var callback = jasmine.createSpy();
+
+      Klass.asyncMethod(someResponseData, callback);
+      //expect(callback).toHaveBeenCalledWith('/home/gina/Downloads/tea-mates/audio/4.ogg');
+      expect(callback).not.toHaveBeenCalled();
+
+  });
+
+});
